@@ -7,6 +7,9 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{graphicx}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{Microsoft JhengHei}
 
 % ===== 程式碼樣式 =====
 \lstset{
@@ -23,14 +26,13 @@
 \begin{document}
 
 \title{Competitive Programming Codebook}
-\author{Your Name}
-\date{}
+\author{YD}
 \maketitle
 
-\begin{multicols}{3}
+\begin{multicols}{2}
 
 % =========================
-\section{Basic Template}
+\section{基礎模板}
 \begin{lstlisting}
 #include <bits/stdc++.h>
 using namespace std;
@@ -44,7 +46,7 @@ int main(){
 \end{lstlisting}
 
 % =========================
-\section{Data Structures}
+\section{資料結構}
 
 \subsection{Union-Find}
 \begin{lstlisting}
@@ -65,7 +67,7 @@ struct DSU {
 \end{lstlisting}
 
 % =========================
-\section{Graph}
+\section{圖論}
 
 \subsection{Dijkstra}
 \begin{lstlisting}
@@ -92,7 +94,7 @@ vector<long long> dijkstra(int n, vector<vector<pair<int,int>>> &g, int s){
 \end{lstlisting}
 
 % =========================
-\section{Math}
+\section{數學}
 
 \subsection{Fast Power}
 \begin{lstlisting}
@@ -108,7 +110,7 @@ long long modpow(long long a, long long b, long long mod){
 \end{lstlisting}
 
 % =========================
-\section{String}
+\section{字串}
 
 \subsection{KMP}
 \begin{lstlisting}
@@ -125,7 +127,7 @@ vector<int> build_lps(string s){
 \end{lstlisting}
 
 % =========================
-\section{Geometry}
+\section{幾何}
 
 \subsection{Cross Product}
 \begin{lstlisting}
