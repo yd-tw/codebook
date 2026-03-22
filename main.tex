@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 \usepackage{fontspec}
 \usepackage{xeCJK}
-\setCJKmainfont{Microsoft JhengHei}
+% \setCJKmainfont{Microsoft JhengHei}
 
 % ===== 程式碼樣式 =====
 \lstset{
@@ -33,17 +33,7 @@
 
 % =========================
 \section{基礎模板}
-\begin{lstlisting}
-#include <bits/stdc++.h>
-using namespace std;
-
-int main(){
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    
-    return 0;
-}
-\end{lstlisting}
+\lstinputlisting{base/base.cpp}
 
 % =========================
 \section{資料結構}
@@ -97,17 +87,7 @@ vector<long long> dijkstra(int n, vector<vector<pair<int,int>>> &g, int s){
 \section{數學}
 
 \subsection{Fast Power}
-\begin{lstlisting}
-long long modpow(long long a, long long b, long long mod){
-    long long res = 1;
-    while(b){
-        if(b & 1) res = res * a % mod;
-        a = a * a % mod;
-        b >>= 1;
-    }
-    return res;
-}
-\end{lstlisting}
+\lstinputlisting{math/pow.cpp}
 
 % =========================
 \section{字串}
@@ -139,15 +119,6 @@ double cross(Point a, Point b){
     return a.x * b.y - a.y * b.x;
 }
 \end{lstlisting}
-
-% =========================
-\section{Notes}
-
-\begin{itemize}
-\item 注意 long long overflow
-\item Graph 常見 edge case：重邊、自環
-\item 初始化一定要檢查
-\end{itemize}
 
 \end{multicols}
 \end{document}
