@@ -1,0 +1,151 @@
+\documentclass[10pt,a4paper]{article}
+
+% ===== 套件 =====
+\usepackage[margin=0.5in]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath, amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+% ===== 程式碼樣式 =====
+\lstset{
+  language=C++,
+  basicstyle=\ttfamily\footnotesize,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{red},
+  breaklines=true,
+  showstringspaces=false
+}
+
+% ===== 文件開始 =====
+\begin{document}
+
+\title{Competitive Programming Codebook}
+\author{Your Name}
+\date{}
+\maketitle
+
+\begin{multicols}{3}
+
+% =========================
+\section{Basic Template}
+\begin{lstlisting}
+#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    return 0;
+}
+\end{lstlisting}
+
+% =========================
+\section{Data Structures}
+
+\subsection{Union-Find}
+\begin{lstlisting}
+struct DSU {
+    vector<int> p;
+    DSU(int n): p(n, -1) {}
+    int find(int x){
+        return p[x] < 0 ? x : p[x] = find(p[x]);
+    }
+    void unite(int a, int b){
+        a = find(a); b = find(b);
+        if(a == b) return;
+        if(p[a] > p[b]) swap(a,b);
+        p[a] += p[b];
+        p[b] = a;
+    }
+};
+\end{lstlisting}
+
+% =========================
+\section{Graph}
+
+\subsection{Dijkstra}
+\begin{lstlisting}
+vector<long long> dijkstra(int n, vector<vector<pair<int,int>>> &g, int s){
+    vector<long long> dist(n, 1e18);
+    priority_queue<pair<long long,int>, vector<pair<long long,int>>, greater<>> pq;
+    
+    dist[s] = 0;
+    pq.push({0, s});
+    
+    while(!pq.empty()){
+        auto [d, u] = pq.top(); pq.pop();
+        if(d > dist[u]) continue;
+        
+        for(auto [v, w] : g[u]){
+            if(dist[v] > d + w){
+                dist[v] = d + w;
+                pq.push({dist[v], v});
+            }
+        }
+    }
+    return dist;
+}
+\end{lstlisting}
+
+% =========================
+\section{Math}
+
+\subsection{Fast Power}
+\begin{lstlisting}
+long long modpow(long long a, long long b, long long mod){
+    long long res = 1;
+    while(b){
+        if(b & 1) res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return res;
+}
+\end{lstlisting}
+
+% =========================
+\section{String}
+
+\subsection{KMP}
+\begin{lstlisting}
+vector<int> build_lps(string s){
+    int n = s.size();
+    vector<int> lps(n);
+    for(int i=1,j=0;i<n;i++){
+        while(j>0 && s[i]!=s[j]) j=lps[j-1];
+        if(s[i]==s[j]) j++;
+        lps[i]=j;
+    }
+    return lps;
+}
+\end{lstlisting}
+
+% =========================
+\section{Geometry}
+
+\subsection{Cross Product}
+\begin{lstlisting}
+struct Point {
+    double x, y;
+};
+
+double cross(Point a, Point b){
+    return a.x * b.y - a.y * b.x;
+}
+\end{lstlisting}
+
+% =========================
+\section{Notes}
+
+\begin{itemize}
+\item 注意 long long overflow
+\item Graph 常見 edge case：重邊、自環
+\item 初始化一定要檢查
+\end{itemize}
+
+\end{multicols}
+\end{document}
