@@ -1,14 +1,29 @@
 struct DSU {
-    vector<int> p;
-    DSU(int n): p(n, -1) {}
-    int find(int x){
-        return p[x] < 0 ? x : p[x] = find(p[x]);
+    vector<int> f, sz;
+    int cnt;
+    DSU(int n) : f(n), sz(n) {
+        for (int i = 0; i < n; i++) {
+            f[i] = i;
+            sz[i] = 1;
+        }
     }
-    void unite(int a, int b){
-        a = find(a); b = find(b);
-        if(a == b) return;
-        if(p[a] > p[b]) swap(a,b);
-        p[a] += p[b];
-        p[b] = a;
+    int find(int x) {
+        if (x == f[x]) return x;
+        return f[x] = find(f[x]);
+    }
+    void merge(int x, int y) {
+        x = find(x); y = find(y);
+        if (x == y) return;
+        if (sz[x] < sz[y])
+            swap(x, y);
+        f[y] = x;
+        sz[x] += sz[y];
+        cnt--;
+    }
+    bool same(int a, int b) {
+        return find(a) == find(b);
+    }
+    int groups() {//找有幾群
+        return cnt;
     }
 };
