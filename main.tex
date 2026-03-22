@@ -38,50 +38,14 @@
 % =========================
 \section{資料結構}
 
-\subsection{Union-Find}
-\begin{lstlisting}
-struct DSU {
-    vector<int> p;
-    DSU(int n): p(n, -1) {}
-    int find(int x){
-        return p[x] < 0 ? x : p[x] = find(p[x]);
-    }
-    void unite(int a, int b){
-        a = find(a); b = find(b);
-        if(a == b) return;
-        if(p[a] > p[b]) swap(a,b);
-        p[a] += p[b];
-        p[b] = a;
-    }
-};
-\end{lstlisting}
+\subsection{DSU}
+\lstinputlisting{structure/dsu.cpp}
 
 % =========================
 \section{圖論}
 
 \subsection{Dijkstra}
-\begin{lstlisting}
-vector<long long> dijkstra(int n, vector<vector<pair<int,int>>> &g, int s){
-    vector<long long> dist(n, 1e18);
-    priority_queue<pair<long long,int>, vector<pair<long long,int>>, greater<>> pq;
-    
-    dist[s] = 0;
-    pq.push({0, s});
-    
-    while(!pq.empty()){
-        auto [d, u] = pq.top(); pq.pop();
-        if(d > dist[u]) continue;
-        
-        for(auto [v, w] : g[u]){
-            if(dist[v] > d + w){
-                dist[v] = d + w;
-                pq.push({dist[v], v});
-            }
-        }
-    }
-    return dist;
-}
-\end{lstlisting}
+\lstinputlisting{graph/dijkstra.cpp}
 
 % =========================
 \section{數學}
@@ -93,32 +57,13 @@ vector<long long> dijkstra(int n, vector<vector<pair<int,int>>> &g, int s){
 \section{字串}
 
 \subsection{KMP}
-\begin{lstlisting}
-vector<int> build_lps(string s){
-    int n = s.size();
-    vector<int> lps(n);
-    for(int i=1,j=0;i<n;i++){
-        while(j>0 && s[i]!=s[j]) j=lps[j-1];
-        if(s[i]==s[j]) j++;
-        lps[i]=j;
-    }
-    return lps;
-}
-\end{lstlisting}
+\lstinputlisting{string/kmp.cpp}
 
 % =========================
 \section{幾何}
 
 \subsection{Cross Product}
-\begin{lstlisting}
-struct Point {
-    double x, y;
-};
-
-double cross(Point a, Point b){
-    return a.x * b.y - a.y * b.x;
-}
-\end{lstlisting}
+\lstinputlisting{geometry/cross.cpp}
 
 \end{multicols}
 \end{document}
