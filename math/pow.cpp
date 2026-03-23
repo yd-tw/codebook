@@ -8,7 +8,6 @@ int ksm(int x, int y) {
     }
     return ans;
 }
-
 // 矩陣乘法
 vector<vector<int>> mul(const vector<vector<int>> &A,
     const vector<vector<int>> &B) {
@@ -24,7 +23,6 @@ vector<vector<int>> mul(const vector<vector<int>> &A,
     }
     return C;
 }
-
 // 矩陣快速冪
 vector<vector<int>> ksm(vector<vector<int>> base, int exp) {
     int n = base.size();
