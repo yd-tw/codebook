@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 \usepackage{fontspec}
 \usepackage{xeCJK}
-% \setCJKmainfont{Microsoft JhengHei}
+\setCJKmainfont{Microsoft JhengHei}
 
 % ===== 程式碼樣式 =====
 \lstset{
@@ -25,15 +25,11 @@
 % ===== 文件開始 =====
 \begin{document}
 
-\title{Competitive Programming Codebook}
-\author{YD}
-\maketitle
+% \title{Competitive Programming Codebook}
+% \author{YD}
+% \maketitle
 
 \begin{multicols}{2}
-
-% =========================
-\section{基礎模板}
-\lstinputlisting{base/base.cpp}
 
 % =========================
 \section{資料結構}
@@ -64,12 +60,6 @@
 
 \subsection{KMP}
 \lstinputlisting{string/kmp.cpp}
-
-% =========================
-\section{幾何}
-
-\subsection{Cross Product}
-\lstinputlisting{geometry/cross.cpp}
 
 \end{multicols}
 \end{document}

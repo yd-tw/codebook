@@ -1,17 +1,17 @@
-	int ksm(int x, int y) {
-    int ans = 1;              
-    while (y) {             
+int ksm(int x, int y) {
+    int ans = 1;
+    while (y) {
         if (y & 1)
-            ans = ans * x;   
-        x = x * x;           
-        y >>= 1;            
+            ans = ans * x;
+        x = x * x;
+        y >>= 1;
     }
     return ans;
 }
 
 // 矩陣乘法
 vector<vector<int>> mul(const vector<vector<int>> &A,
-                        const vector<vector<int>> &B) {
+    const vector<vector<int>> &B) {
     int n = A.size();
     vector<vector<int>> C(n, vector<int>(n, 0));
 
