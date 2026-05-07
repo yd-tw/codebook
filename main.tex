@@ -38,22 +38,48 @@
 \lstinputlisting{structure/dsu.cpp}
 \subsection{BIT}
 \lstinputlisting{structure/bit.cpp}
+\subsection{SEG}
+\lstinputlisting{structure/seg.cpp}
+
+% =========================
+\section{最短路}
+
+\subsection{Dijkstra}
+\lstinputlisting{shortest-path/dijkstra.cpp}
+\subsection{SPTree}
+\lstinputlisting{shortest-path/shortest-path-tree.cpp}
+\subsection{Bellman}
+\lstinputlisting{shortest-path/bellman.cpp}
+\subsection{Floyd-Warshall}
+\lstinputlisting{shortest-path/Floyd-Warshall.cpp}
 
 % =========================
 \section{圖論}
 
-\subsection{Dijkstra}
-\lstinputlisting{graph/dijkstra.cpp}
-\subsection{SPTree}
-\lstinputlisting{graph/shortest-path-tree.cpp}
-\subsection{Bellman}
-\lstinputlisting{graph/bellman.cpp}
+\subsection{bfs}
+\lstinputlisting{graph/bfs.cpp}
+\subsection{dfs}
+\lstinputlisting{graph/dfs.cpp}
+\subsection{ola}
+\lstinputlisting{graph/ola.cpp}
+\subsection{topo}
+\lstinputlisting{graph/topo.cpp}
 
 % =========================
 \section{數學}
 
 \subsection{Fast Power}
 \lstinputlisting{math/pow.cpp}
+\subsection{C n取k}
+\frac{n!}{k!(n-k)!} &\equiv n! \cdot (k!)^{-1}\cdot ((n-k)!)^{-1} \pmod p\\ 
+&\equiv
+n! \cdot (k!)^{p-2} \cdot ((n-k)!)^{p-2} \pmod p
+\end{split}
+\lstinputlisting{math/combination.cpp}
+\subsection{錯排}
+D_n = (n-1) (D_{n-1} + D_{n-2})
+D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}
+lstinputlisting{math/d.cpp}
 
 % =========================
 \section{字串}
@@ -63,3 +89,4 @@
 
 \end{multicols}
 \end{document}
+\begin{split}
