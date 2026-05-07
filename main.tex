@@ -70,16 +70,29 @@
 
 \subsection{Fast Power}
 \lstinputlisting{math/pow.cpp}
+\subsection{GCD}
+\lstinputlisting{math/GCD.cpp}
+\subsection{EXGCD}
+\lstinputlisting{math/EXGCD.cpp}
 \subsection{C n取k}
-\frac{n!}{k!(n-k)!} &\equiv n! \cdot (k!)^{-1}\cdot ((n-k)!)^{-1} \pmod p\\ 
-&\equiv
-n! \cdot (k!)^{p-2} \cdot ((n-k)!)^{p-2} \pmod p
+\begin{equation}
+\begin{split}
+\frac{n!}{k!(n-k)!} &\equiv n! \cdot (k!)^{-1}\cdot ((n-k)!)^{-1} \pmod p \\
+&\equiv n! \cdot (k!)^{p-2} \cdot ((n-k)!)^{p-2} \pmod p
 \end{split}
+\end{equation}
 \lstinputlisting{math/combination.cpp}
 \subsection{錯排}
-D_n = (n-1) (D_{n-1} + D_{n-2})
-D_n=n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}
-lstinputlisting{math/d.cpp}
+\begin{align*}
+D_n &= (n-1)(D_{n-1} + D_{n-2}) \\
+D_n &= n!\sum_{k=0}^{n}\frac{(-1)^k}{k!}
+\end{align*}
+\subsection{離散化}
+\lstinputlisting{math/discretiztion.cpp}
+\subsection{快速乘}
+\lstinputlisting{math/fastme.cpp}
+\subsection{容斥}
+\lstinputlisting{math/in-exclusion.cpp}
 
 % =========================
 \section{字串}
@@ -87,6 +100,33 @@ lstinputlisting{math/d.cpp}
 \subsection{KMP}
 \lstinputlisting{string/kmp.cpp}
 
+% =========================
+\section{DP}
+
+\subsection{0-1背包}
+\lstinputlisting{DP/0-1.cpp}
+\subsection{無限背包}
+\lstinputlisting{DP/infinity.cpp}
+\subsection{二進制分組}
+\lstinputlisting{DP/binary_split}
+\subsection{位元背包}
+\lstinputlisting{DP/bitmask.cpp}
+\subsection{LCS}
+\lstinputlisting{DP/LCS.cpp}
+\subsection{LIS}
+\lstinputlisting{DP/LIS.cpp}
+\subsection{SOS}
+\lstinputlisting{DP/SOS.cpp}
+\subsection{編輯距離}
+\lstinputlisting{DP/edit.cpp}
+\subsection{子集和}
+\lstinputlisting{DP/subsum.cpp}
+
+% =========================
+\section{雜項}
+
+\subsection{Cool Things}
+\lstinputlisting{cool-thing/cool.cpp}
+
 \end{multicols}
 \end{document}
-\begin{split}
